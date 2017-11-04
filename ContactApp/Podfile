@@ -12,6 +12,9 @@ pod 'SDWebImage', '~>3.8'
 #camera
 pod 'Fusuma'
 
+#realm
+#pod 'RealmSwift'
+
 end
 
 post_install do |installer|

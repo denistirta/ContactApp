@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PhotoAdd" selectionStyle="default" indentationWidth="10" id="u0t-u2-Cf4" customClass="PhotoAdd" customModule="ContactApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="u0t-u2-Cf4" id="mmq-gq-n56">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderProfile" translatesAutoresizingMaskIntoConstraints="NO" id="OA3-6F-XwT">
+                        <rect key="frame" x="127" y="40" width="120" height="120"/>
+                        <color key="backgroundColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="fLg-8z-erl"/>
+                            <constraint firstAttribute="width" constant="120" id="ifM-Im-Ejo"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aaL-Xk-7uA">
+                        <rect key="frame" x="207" y="120" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.91201031210000005" green="0.14920184019999999" blue="0.38671481610000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="EMK-Qw-X2t"/>
+                            <constraint firstAttribute="width" constant="40" id="TPf-Hn-Gyb"/>
+                        </constraints>
+                        <connections>
+                            <action selector="pushBtnCamera:" destination="u0t-u2-Cf4" eventType="touchUpInside" id="K2y-uA-U9B"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="OA3-6F-XwT" firstAttribute="centerY" secondItem="mmq-gq-n56" secondAttribute="centerY" id="5lW-9A-qAf"/>
+                    <constraint firstItem="aaL-Xk-7uA" firstAttribute="trailing" secondItem="OA3-6F-XwT" secondAttribute="trailing" id="80X-7n-H6X"/>
+                    <constraint firstItem="aaL-Xk-7uA" firstAttribute="bottom" secondItem="OA3-6F-XwT" secondAttribute="bottom" id="Fsj-eR-2H4"/>
+                    <constraint firstItem="OA3-6F-XwT" firstAttribute="centerX" secondItem="mmq-gq-n56" secondAttribute="centerX" id="hG6-8Q-hbS"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="btnCamera" destination="aaL-Xk-7uA" id="f04-ET-i5z"/>
+                <outlet property="imgProfile" destination="OA3-6F-XwT" id="gW9-Km-DoB"/>
+            </connections>
+            <point key="canvasLocation" x="-261" y="-133"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="PlaceholderProfile" width="24" height="26"/>
+    </resources>
+</document>

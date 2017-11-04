@@ -14,11 +14,11 @@ public enum Base: String {
 }
 
 func Contact() -> String{
-    let contact = "\(Base.baseGlobal.rawValue)contacts.json"
+    let contact = "\(Base.baseGlobal.rawValue)/contacts.json"
     return contact
 }
 
 func ContactID(id: String) -> String{
-    let contactid = "\(Base.baseGlobal.rawValue)contacts\(id).json"
+    let contactid = "\(Base.baseGlobal.rawValue)/contacts\(id).json"
     return contactid
 }

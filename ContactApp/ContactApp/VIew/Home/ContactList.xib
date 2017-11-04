@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,8 +15,8 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ContactList" selectionStyle="default" indentationWidth="10" id="cgx-dU-fDN" customClass="ContactList" customModule="ContactApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cgx-dU-fDN" id="39y-ok-z6Z">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="63.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cgx-dU-fDN" id="39y-ok-z6Z">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlaceholderProfile" translatesAutoresizingMaskIntoConstraints="NO" id="vZh-hh-EG7">
@@ -33,23 +34,39 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4tW-gD-tkY">
                         <rect key="frame" x="322" y="21" width="21" height="21"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="CoR-R1-f0T"/>
                             <constraint firstAttribute="width" constant="21" id="nJ2-h2-2PT"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAP-tt-oli">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                        <connections>
+                            <action selector="pushBtnCell:" destination="cgx-dU-fDN" eventType="touchUpInside" id="N3j-cI-d9S"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="4tW-gD-tkY" firstAttribute="centerY" secondItem="39y-ok-z6Z" secondAttribute="centerY" id="DC3-wb-nhU"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="TAP-tt-oli" secondAttribute="bottom" constant="-9" id="JtD-8n-OOx"/>
+                    <constraint firstItem="TAP-tt-oli" firstAttribute="top" secondItem="39y-ok-z6Z" secondAttribute="topMargin" constant="-8" id="Kao-Nf-FgF"/>
                     <constraint firstItem="hUK-wd-WQM" firstAttribute="leading" secondItem="vZh-hh-EG7" secondAttribute="trailing" constant="16" id="TRi-hY-UD9"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="TAP-tt-oli" secondAttribute="trailing" constant="-8" id="YUT-Nv-ajc"/>
                     <constraint firstItem="4tW-gD-tkY" firstAttribute="leading" secondItem="hUK-wd-WQM" secondAttribute="trailing" constant="8" id="ZVJ-kP-xRw"/>
+                    <constraint firstItem="TAP-tt-oli" firstAttribute="leading" secondItem="39y-ok-z6Z" secondAttribute="leadingMargin" constant="-8" id="aPj-Ab-Rqn"/>
                     <constraint firstItem="vZh-hh-EG7" firstAttribute="leading" secondItem="39y-ok-z6Z" secondAttribute="leading" constant="16" id="cIg-AR-Ko1"/>
                     <constraint firstAttribute="trailing" secondItem="4tW-gD-tkY" secondAttribute="trailing" constant="32" id="ckQ-Lh-KxT"/>
                     <constraint firstItem="hUK-wd-WQM" firstAttribute="centerY" secondItem="39y-ok-z6Z" secondAttribute="centerY" id="hC5-0T-r4Q"/>
                     <constraint firstItem="vZh-hh-EG7" firstAttribute="centerY" secondItem="39y-ok-z6Z" secondAttribute="centerY" id="j9d-4A-R2P"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-262" y="-72"/>
+            <connections>
+                <outlet property="favorite" destination="4tW-gD-tkY" id="hvs-NL-rSU"/>
+                <outlet property="img" destination="vZh-hh-EG7" id="BTf-KX-DNt"/>
+                <outlet property="name" destination="hUK-wd-WQM" id="Wxi-3H-dCv"/>
+            </connections>
+            <point key="canvasLocation" x="51" y="46"/>
         </tableViewCell>
     </objects>
     <resources>
