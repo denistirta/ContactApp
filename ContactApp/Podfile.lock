@@ -1,0 +1,23 @@
+PODS:
+  - Alamofire (4.5.1)
+  - Fusuma (1.2.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SwiftyJSON (3.1.4)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.4)
+  - Fusuma
+  - SDWebImage (~> 3.8)
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Fusuma: e8158ad6650507455c9898c22bc01583fbc86d8e
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+
+PODFILE CHECKSUM: b5955502b1e20f238153fb2ca3cc379cf23e5740
+
+COCOAPODS: 1.0.1

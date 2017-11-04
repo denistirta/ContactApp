@@ -1,0 +1,28 @@
+platform :ios, '8.0'
+use_frameworks!
+target 'ContactApp' do
+
+#GET/POST API
+pod 'Alamofire', '~> 4.4'
+pod 'SwiftyJSON'
+
+#ImageWeb
+pod 'SDWebImage', '~>3.8'
+
+#camera
+pod 'Fusuma'
+
+end
+
+post_install do |installer|
+    app_plist = "ContactApp/Info.plist"
+    plist_buddy = "/usr/libexec/PlistBuddy"
+
+    version = `#{plist_buddy} -c "Print CFBundleShortVersionString" "#{app_plist}"`.strip
+
+    puts "Updating CocoaPods frameworks' version numbers to #{version}"
+
+    installer.pods_project.targets.each do |target|
+        `#{plist_buddy} -c "Set CFBundleShortVersionString #{version}" "Pods/Target Support Files/#{target}/Info.plist"`
+        end
+end
