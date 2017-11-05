@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,54 +16,100 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LUZ-9z-Nx2" id="sc4-RC-fJ5">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="149.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="150"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-2s-vzL">
-                        <rect key="frame" x="106" y="8" width="261" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
-                    </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwG-g4-Lpe">
-                        <rect key="frame" x="8" y="47" width="90" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-uS-h5N">
+                        <rect key="frame" x="8" y="13" width="85" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="IRn-JG-4rw"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DHw-Wt-gKD">
-                        <rect key="frame" x="106" y="42" width="261" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-2s-vzL">
+                        <rect key="frame" x="101" y="8" width="266" height="30"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88o-PP-523">
-                        <rect key="frame" x="8" y="81" width="90" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vwG-g4-Lpe">
+                        <rect key="frame" x="8" y="47" width="85" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="lBB-1h-0gb"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xf-ju-k9J">
-                        <rect key="frame" x="106" y="76" width="261" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DHw-Wt-gKD">
+                        <rect key="frame" x="101" y="42" width="266" height="30"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                     </textField>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-uS-h5N">
-                        <rect key="frame" x="8" y="13" width="90" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88o-PP-523">
+                        <rect key="frame" x="8" y="81" width="85" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="hiu-0T-VK0"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9xf-ju-k9J">
+                        <rect key="frame" x="101" y="76" width="266" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" returnKeyType="next"/>
+                    </textField>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gag-Ao-xKb">
+                        <rect key="frame" x="8" y="115" width="85" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="85" id="FjG-dN-5FM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QuN-4S-izG">
+                        <rect key="frame" x="101" y="110" width="266" height="30"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" returnKeyType="send"/>
+                    </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="DHw-Wt-gKD" firstAttribute="top" secondItem="sZM-2s-vzL" secondAttribute="bottom" constant="4" id="5qH-KJ-fSv"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="Gag-Ao-xKb" secondAttribute="leading" id="6m3-Sz-zDI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="sZM-2s-vzL" secondAttribute="trailing" id="9el-Zm-H1M"/>
+                    <constraint firstItem="QuN-4S-izG" firstAttribute="leading" secondItem="Gag-Ao-xKb" secondAttribute="trailing" constant="8" id="A8q-3x-bsd"/>
+                    <constraint firstItem="9xf-ju-k9J" firstAttribute="top" secondItem="DHw-Wt-gKD" secondAttribute="bottom" constant="4" id="ASv-yo-N9g"/>
+                    <constraint firstItem="1wo-uS-h5N" firstAttribute="top" secondItem="sc4-RC-fJ5" secondAttribute="topMargin" constant="5" id="CSH-YV-n3r"/>
+                    <constraint firstItem="QuN-4S-izG" firstAttribute="top" secondItem="9xf-ju-k9J" secondAttribute="bottom" constant="4" id="KXo-SE-Vbb"/>
+                    <constraint firstItem="DHw-Wt-gKD" firstAttribute="leading" secondItem="vwG-g4-Lpe" secondAttribute="trailing" constant="8" id="QNz-Bv-3Bx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="9xf-ju-k9J" secondAttribute="trailing" id="RUd-kK-s65"/>
+                    <constraint firstAttribute="topMargin" secondItem="sZM-2s-vzL" secondAttribute="top" id="S3A-c7-oKo"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="88o-PP-523" secondAttribute="leading" id="Ty6-sf-70C"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="vwG-g4-Lpe" secondAttribute="leading" id="Vsw-t4-FCk"/>
+                    <constraint firstItem="sZM-2s-vzL" firstAttribute="leading" secondItem="1wo-uS-h5N" secondAttribute="trailing" constant="8" id="Zye-qo-kmu"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="1wo-uS-h5N" secondAttribute="leading" id="fQY-L9-tNd"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="DHw-Wt-gKD" secondAttribute="trailing" id="mzY-Ld-sI0"/>
+                    <constraint firstItem="vwG-g4-Lpe" firstAttribute="top" secondItem="1wo-uS-h5N" secondAttribute="bottom" constant="17" id="qu7-Is-MS8"/>
+                    <constraint firstItem="Gag-Ao-xKb" firstAttribute="top" secondItem="88o-PP-523" secondAttribute="bottom" constant="17" id="t1d-hn-bnx"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="QuN-4S-izG" secondAttribute="trailing" id="uz5-FX-qrc"/>
+                    <constraint firstItem="88o-PP-523" firstAttribute="top" secondItem="vwG-g4-Lpe" secondAttribute="bottom" constant="17" id="whF-rg-K00"/>
+                    <constraint firstItem="9xf-ju-k9J" firstAttribute="leading" secondItem="88o-PP-523" secondAttribute="trailing" constant="8" id="ycV-BW-TU4"/>
+                </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-139.5" y="-99"/>
+            <connections>
+                <outlet property="email" destination="QuN-4S-izG" id="aEX-FI-FFt"/>
+                <outlet property="first" destination="sZM-2s-vzL" id="5IH-Ga-gxw"/>
+                <outlet property="last" destination="DHw-Wt-gKD" id="uP4-b0-Xa2"/>
+                <outlet property="mobile" destination="9xf-ju-k9J" id="5Ud-Fq-fJF"/>
+            </connections>
+            <point key="canvasLocation" x="-283" y="-299"/>
         </tableViewCell>
     </objects>
 </document>

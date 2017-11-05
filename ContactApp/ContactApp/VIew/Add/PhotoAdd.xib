@@ -49,7 +49,7 @@
                 <outlet property="btnCamera" destination="aaL-Xk-7uA" id="f04-ET-i5z"/>
                 <outlet property="imgProfile" destination="OA3-6F-XwT" id="gW9-Km-DoB"/>
             </connections>
-            <point key="canvasLocation" x="-261" y="-133"/>
+            <point key="canvasLocation" x="-285" y="-77"/>
         </tableViewCell>
     </objects>
     <resources>

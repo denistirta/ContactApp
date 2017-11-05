@@ -26,6 +26,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func createView(){
+        self.view.backgroundColor = UIColor.white
         
         header = Bundle.main.loadNibNamed("HeaderHome", owner: nil, options: nil)?.first as! HeaderHome
         header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80)
@@ -37,8 +38,8 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         table.frame = CGRect(x: 0, y: 80, width: self.view.frame.size.width, height: self.view.frame.size.height-80)
         table.delegate = self;
         table.dataSource = self;
-        table.backgroundColor = UIColor.init(red: 54/255, green: 54/255, blue: 54/255, alpha: 1)
-        table.separatorColor = UIColor.clear
+        table.backgroundColor = UIColor.white
+        table.separatorColor = UIColor.groupTableViewBackground
         table.allowsSelection = false
         
         table.register(UINib(nibName: "ContactList", bundle: nil), forCellReuseIdentifier: "ContactList")
@@ -91,6 +92,14 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let json = self.data[indexPath.row] as! JSON
         cell.name.text = "\(json["first_name"]) \(json["last_name"])"
+        cell.img.sd_setImage(with: URL(string: "\(json["profile_pic"])"), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
+        
+        if !json["favorite"].boolValue{
+            cell.favorite.backgroundColor = UIColor.green
+        }else{
+            cell.favorite.backgroundColor = UIColor.clear
+        }
+
         
         cell.index = indexPath
         cell.delegate = self
@@ -99,17 +108,24 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     //HeaderHomeDelegate
     func groups() {
-        
+        Function.AlertMessage(title: "Groups", message: "", targetVC: self)
     }
     
     func add() {
-        
+        let story = UIStoryboard(name: "Main", bundle: nil)
+        let controll = story.instantiateViewController(withIdentifier: "AddContact") as! AddContact
+        navigationController?.pushViewController(controll, animated: true)
     }
     //end
     
     //ContactListDelegate
     func pushCell(index: IndexPath) {
+        let json = self.data[index.row] as! JSON
         
+        let story = UIStoryboard(name: "Main", bundle: nil)
+        let controll = story.instantiateViewController(withIdentifier: "ViewContact") as! ViewContact
+        controll.id = "\(json["id"])"
+        navigationController?.pushViewController(controll, animated: true)
     }
     //end
     

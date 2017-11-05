@@ -19,6 +19,6 @@ func Contact() -> String{
 }
 
 func ContactID(id: String) -> String{
-    let contactid = "\(Base.baseGlobal.rawValue)/contacts\(id).json"
+    let contactid = "\(Base.baseGlobal.rawValue)/contacts/\(id).json"
     return contactid
 }
