@@ -7,20 +7,29 @@
 //
 
 import UIKit
+import MessageUI
 import Alamofire
 import SwiftyJSON
 import SDWebImage
 
-class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource, HeaderAddDelegate, PhotoViewDelegate {
+class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate, HeaderAddDelegate, PhotoViewDelegate {
     
     var header = HeaderAdd()
+    var headerImg = PhotoView()
     var table = UITableView()
     var data = NSMutableArray()
+    
+    var dataList = NSArray()
     var id = String()
+    var img = String()
+    var first = String()
+    var last = String()
+    var favorite = Bool()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dataList = ["mobile", "email"]
         getData()
         createView()
     }
@@ -29,23 +38,29 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
         self.view.backgroundColor = UIColor.white
         
         header = Bundle.main.loadNibNamed("HeaderAdd", owner: nil, options: nil)?.first as! HeaderAdd
-        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80)
+        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
         header.btnCancel.setTitle("< Contact", for: .normal)
         header.btnDone.setTitle("Edit", for: .normal)
         header.delegate = self
         self.view.addSubview(header)
         
+        headerImg = Bundle.main.loadNibNamed("PhotoView", owner: nil, options: nil)?.first as! PhotoView
+        headerImg.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: 250)
+        headerImg.img.sd_setImage(with: URL(string: "\(img)"), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
+        headerImg.name.text = "\(first) \(last)"
+        headerImg.favourite = favorite
+        headerImg.delegate = self
+        self.view.addSubview(headerImg)
+        
         // Create Table
-        table.frame = CGRect(x: 0, y: 80, width: self.view.frame.size.width, height: self.view.frame.size.height-80)
+        table.frame = CGRect(x: 0, y: 310, width: self.view.frame.size.width, height: self.view.frame.size.height-310)
         table.delegate = self;
         table.dataSource = self;
-        table.backgroundColor = UIColor.white
-        table.separatorColor = UIColor.clear
+        table.backgroundColor = UIColor.init(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
+        table.separatorColor = UIColor.groupTableViewBackground
         table.allowsSelection = false
         
-        table.register(UINib(nibName: "PhotoView", bundle: nil), forCellReuseIdentifier: "PhotoView")
         table.register(UINib(nibName: "FieldView", bundle: nil), forCellReuseIdentifier: "FieldView")
-        
         self.view .addSubview(table)
         
     }
@@ -64,11 +79,8 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
                     let jsonResult = JSON(response.result.value!)
                     print(jsonResult)
                     if !(jsonResult["error"].boolValue){
-                        
                         self.data.add(jsonResult)
                         self.table.reloadData()
-                        
-                        
                     }else{
                         
                     }
@@ -82,7 +94,7 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.data.count > 0{
-            return 2
+            return dataList.count
         }else{
             return 0
         }
@@ -91,33 +103,29 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 250
+            return 56
         case 1:
-            return 90
+            return 56
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoView", for: indexPath) as! PhotoView
-            
-            let json = self.data[0] as! JSON
-            cell.img.sd_setImage(with: URL(string: "\(json["profile_pic"])"), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
-            cell.name.text = "\(json["first_name"]) \(json["last_name"])"
-            cell.delegate = self
-            return cell
-        case 1:
+        if self.data.count > 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FieldView", for: indexPath) as! FieldView
             
+            cell.title.text = "\(dataList[indexPath.row])"
             let json = self.data[0] as! JSON
-            cell.mobile.text = "\(json["phone_number"])"
-            cell.email.text = "\(json["email"])"
+            
+            if indexPath.row == 0{
+                cell.value.text = "\(json["phone_number"])"
+            }else{
+                cell.value.text = "\(json["email"])"
+            }
             
             return cell
-        default:
+        }else{
             let cell = UITableViewCell()
             return cell
         }
@@ -165,23 +173,69 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
     //end
     
     func message(no: String){
-        Function.AlertMessage(title: "\(no)", message: "", targetVC: self)
+        if MFMessageComposeViewController.canSendText(){
+            let controller = MFMessageComposeViewController()
+            controller.body = ""
+            controller.recipients = [no]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
+    // MFMessageComposeViewControllerDelegate
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    // end
+    
     func call(no: String){
-        Function.AlertMessage(title: "\(no)", message: "", targetVC: self)
+        if let url = URL(string: "tel://\(no)"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+
     }
     
     func email(email: String){
-        Function.AlertMessage(title: "\(email)", message: "", targetVC: self)
+        if !MFMailComposeViewController.canSendMail() {
+            Function.AlertMessage(title: "Error", message: "Mail services are not available", targetVC: self)
+            return
+        }
+        
+        let composeVC = MFMailComposeViewController()
+        composeVC.mailComposeDelegate = self
+        
+        // Configure the fields of the interface.
+        composeVC.setToRecipients(["\(email)"])
+        composeVC.setSubject("")
+        composeVC.setMessageBody("", isHTML: false)
+        
+        // Present the view controller modally.
+        self.present(composeVC, animated: true, completion: nil)
     }
     
+    // mailComposeDelegate
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    // end
+
     func favourite(){
         Function.AlertMessage(title: "Favourite", message: "", targetVC: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
         
     }
     
@@ -191,7 +245,7 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .default
     }
     
     override func viewDidLayoutSubviews() {

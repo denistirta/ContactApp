@@ -19,6 +19,14 @@ class MenuCell: UICollectionViewCell {
     @IBOutlet weak var nameMenu: UILabel!
     var index = IndexPath()
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        imgBtn.layer.cornerRadius = imgBtn.frame.size.width/2
+        imgBtn.clipsToBounds = true
+        
+    }
+    
     @IBAction func pushCell(_ sender: Any) {
         delegate?.PushCell(index: index)
     }

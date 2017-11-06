@@ -10,6 +10,7 @@ import UIKit
 
 class FieldView: UITableViewCell {
     
-    @IBOutlet weak var mobile: UILabel!
-    @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var title: UILabel!
+    @IBOutlet var value: UILabel!
+    
 }

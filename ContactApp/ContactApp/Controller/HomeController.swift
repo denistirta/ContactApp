@@ -29,19 +29,20 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.view.backgroundColor = UIColor.white
         
         header = Bundle.main.loadNibNamed("HeaderHome", owner: nil, options: nil)?.first as! HeaderHome
-        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80)
+        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
         header.title.text = "Contact"
         header.delegate = self
         self.view.addSubview(header)
         
         // Create Table
-        table.frame = CGRect(x: 0, y: 80, width: self.view.frame.size.width, height: self.view.frame.size.height-80)
+        table.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: self.view.frame.size.height-60)
         table.delegate = self;
         table.dataSource = self;
         table.backgroundColor = UIColor.white
-        table.separatorColor = UIColor.groupTableViewBackground
+        table.separatorColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         table.allowsSelection = false
         
+        table.register(UINib(nibName: "HeaderTableList", bundle: nil), forHeaderFooterViewReuseIdentifier: "HeaderTableList")
         table.register(UINib(nibName: "ContactList", bundle: nil), forCellReuseIdentifier: "ContactList")
         self.view .addSubview(table)
         
@@ -79,6 +80,19 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let cell = tableView.dequeueReusableHeaderFooterView(withIdentifier: "HeaderTableList") as! HeaderTableList
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.data.count
     }
@@ -95,12 +109,11 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.img.sd_setImage(with: URL(string: "\(json["profile_pic"])"), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
         
         if !json["favorite"].boolValue{
-            cell.favorite.backgroundColor = UIColor.green
+            cell.favorite.isHidden = false
         }else{
-            cell.favorite.backgroundColor = UIColor.clear
+            cell.favorite.isHidden = true
         }
 
-        
         cell.index = indexPath
         cell.delegate = self
         return cell
@@ -124,14 +137,21 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let story = UIStoryboard(name: "Main", bundle: nil)
         let controll = story.instantiateViewController(withIdentifier: "ViewContact") as! ViewContact
+        
         controll.id = "\(json["id"])"
+        controll.first = "\(json["first_name"])"
+        controll.last = "\(json["last_name"])"
+        controll.img = "\(json["profile_pic"])"
+        controll.favorite = json["favorite"].boolValue
+        
         navigationController?.pushViewController(controll, animated: true)
     }
     //end
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.isNavigationBarHidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -140,7 +160,7 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .default
     }
     
     override func viewDidLayoutSubviews() {

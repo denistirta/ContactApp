@@ -24,5 +24,11 @@ class Function {
         targetVC.present(alert, animated: true, completion: nil)
     }
     
+    static func createGradientLayer(color1: UIColor, color2: UIColor, view: UIView) {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [color1.cgColor, color2.cgColor]
+        view.layer.addSublayer(gradientLayer)
+    }
     
 }

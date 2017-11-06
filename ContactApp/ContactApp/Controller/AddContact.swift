@@ -14,9 +14,11 @@ import SDWebImage
 class AddContact: UIViewController, UITableViewDelegate, UITableViewDataSource, HeaderAddDelegate, PhotoAddDelegate, FieldAddDelegate {
     
     var header = HeaderAdd()
+    var headerImg = PhotoAdd()
     var table = UITableView()
     var data = NSMutableArray()
-    
+    var dataList = NSArray()
+
     var edit = Bool()
     
     var id = String()
@@ -28,7 +30,8 @@ class AddContact: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
+        dataList = ["First Name", "Last Name", "mobile", "email"]
         createView()
     }
     
@@ -36,50 +39,47 @@ class AddContact: UIViewController, UITableViewDelegate, UITableViewDataSource, 
         self.view.backgroundColor = UIColor.white
         
         header = Bundle.main.loadNibNamed("HeaderAdd", owner: nil, options: nil)?.first as! HeaderAdd
-        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 80)
+        header.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 60)
         header.delegate = self
         self.view.addSubview(header)
         
+        headerImg = Bundle.main.loadNibNamed("PhotoAdd", owner: nil, options: nil)?.first as! PhotoAdd
+        headerImg.frame = CGRect(x: 0, y: 60, width: self.view.frame.size.width, height: 200)
+        headerImg.imgProfile.sd_setImage(with: URL(string: img), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
+        headerImg.delegate = self
+        self.view.addSubview(headerImg)
+        
         // Create Table
-        table.frame = CGRect(x: 0, y: 80, width: self.view.frame.size.width, height: self.view.frame.size.height-80)
+        table.frame = CGRect(x: 0, y: 260, width: self.view.frame.size.width, height: self.view.frame.size.height-260)
         table.delegate = self;
         table.dataSource = self;
-        table.backgroundColor = UIColor.white
+        table.backgroundColor = UIColor.init(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
         table.separatorColor = UIColor.groupTableViewBackground
         table.allowsSelection = false
         
-        table.register(UINib(nibName: "PhotoAdd", bundle: nil), forCellReuseIdentifier: "PhotoAdd")
         table.register(UINib(nibName: "FieldAdd", bundle: nil), forCellReuseIdentifier: "FieldAdd")
-
         self.view .addSubview(table)
         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            return 200
-        case 1:
-            return 150
+            return 56
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
         switch indexPath.row {
         case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoAdd", for: indexPath) as! PhotoAdd
-            
-            cell.imgProfile.sd_setImage(with: URL(string: img), placeholderImage: UIImage(named: "PlaceholderProfile"), options: SDWebImageOptions.refreshCached)
-            
-            cell.delegate = self
-            return cell
-        case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FieldAdd", for: indexPath) as! FieldAdd
             
             cell.first.text = first
@@ -135,7 +135,8 @@ class AddContact: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.isNavigationBarHidden = true
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -144,7 +145,7 @@ class AddContact: UIViewController, UITableViewDelegate, UITableViewDataSource, 
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .default
     }
     
     override func viewDidLayoutSubviews() {

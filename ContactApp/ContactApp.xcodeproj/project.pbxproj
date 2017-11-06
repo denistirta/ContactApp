@@ -34,6 +34,8 @@
 		2DEED6A31FAD9E650070E0EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DEED6A11FAD9E650070E0EB /* Main.storyboard */; };
 		2DEED6A61FAD9E710070E0EB /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEED6A51FAD9E710070E0EB /* HomeController.swift */; };
 		55BB87D34204E86525FE1727 /* Pods_ContactApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C5D67FF1E5C74C97AC4A490 /* Pods_ContactApp.framework */; };
+		5A6166451FB00AEE00AF41B1 /* HeaderTableList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6166441FB00AEE00AF41B1 /* HeaderTableList.swift */; };
+		5A6166471FB00B0600AF41B1 /* HeaderTableList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A6166461FB00B0600AF41B1 /* HeaderTableList.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,8 @@
 		2DEED6A01FAD9E650070E0EB /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2DEED6A11FAD9E650070E0EB /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2DEED6A51FAD9E710070E0EB /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		5A6166441FB00AEE00AF41B1 /* HeaderTableList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableList.swift; sourceTree = "<group>"; };
+		5A6166461FB00B0600AF41B1 /* HeaderTableList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableList.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,8 @@
 				2D7C018C1FADA97F0080E83A /* HeaderHome.xib */,
 				2D7C01861FADA8E30080E83A /* ContactList.swift */,
 				2D7C01871FADA8E30080E83A /* ContactList.xib */,
+				5A6166441FB00AEE00AF41B1 /* HeaderTableList.swift */,
+				5A6166461FB00B0600AF41B1 /* HeaderTableList.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -253,7 +259,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "denis tirta";
 				TargetAttributes = {
 					2D2BC6201FAD9AE7005E41C0 = {
@@ -292,6 +298,7 @@
 				2D0F8EC01FAEC8FA0068920C /* MenuCell.xib in Resources */,
 				2D7C01A91FADCF8B0080E83A /* FieldAdd.xib in Resources */,
 				2D7C019D1FADC8A30080E83A /* HeaderAdd.xib in Resources */,
+				5A6166471FB00B0600AF41B1 /* HeaderTableList.xib in Resources */,
 				2D0F8EC41FAECBE30068920C /* FieldView.xib in Resources */,
 				2DEED6A31FAD9E650070E0EB /* Main.storyboard in Resources */,
 				2D0F8EBC1FAEC7150068920C /* PhotoView.xib in Resources */,
@@ -331,7 +338,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		CD43826613C1D99A66FE4548 /* [CP] Copy Pods Resources */ = {
@@ -369,6 +376,7 @@
 				2D7C01951FADC6780080E83A /* ViewContact.swift in Sources */,
 				2DEED6A61FAD9E710070E0EB /* HomeController.swift in Sources */,
 				2D7C018F1FADB1E70080E83A /* Function.swift in Sources */,
+				5A6166451FB00AEE00AF41B1 /* HeaderTableList.swift in Sources */,
 				2D7C018B1FADA9690080E83A /* HeaderHome.swift in Sources */,
 				2D7C01881FADA8E30080E83A /* ContactList.swift in Sources */,
 			);
@@ -387,7 +395,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -395,7 +405,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -437,7 +451,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -445,7 +461,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

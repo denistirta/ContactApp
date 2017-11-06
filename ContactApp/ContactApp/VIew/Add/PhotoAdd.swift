@@ -12,14 +12,17 @@ protocol PhotoAddDelegate {
     func takePicture()
 }
 
-class PhotoAdd: UITableViewCell {
+class PhotoAdd: UIView {
     
     var delegate: PhotoAddDelegate?
     @IBOutlet weak var imgProfile: UIImageView!
     @IBOutlet weak var btnCamera: UIButton!
+    @IBOutlet var bg: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        Function.createGradientLayer(color1: UIColor.init(red: 255/255, green: 255/255, blue: 255/255, alpha: 1), color2: UIColor.init(red: 80/255, green: 227/255, blue: 194/255, alpha: 28), view: bg)
         
         imgProfile.layer.cornerRadius = imgProfile.frame.size.width/2
         imgProfile.clipsToBounds = true
