@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" restorationIdentifier="PhotoAdd" id="eKW-og-wbC" customClass="PhotoAdd" customModule="ContactApp" customModuleProvider="target">
+        <view contentMode="scaleToFill" restorationIdentifier="PhotoAdd" id="4j5-Nx-kku" customClass="PhotoAdd" customModule="ContactApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -36,28 +36,28 @@
                     </constraints>
                     <state key="normal" image="camera"/>
                     <connections>
-                        <action selector="pushBtnCamera:" destination="eKW-og-wbC" eventType="touchUpInside" id="y3w-aO-l4M"/>
+                        <action selector="pushBtnCamera:" destination="4j5-Nx-kku" eventType="touchUpInside" id="MKF-x3-oeP"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="XE1-Au-ZpB" secondAttribute="bottom" id="2rn-QV-qg9"/>
-                <constraint firstItem="XE1-Au-ZpB" firstAttribute="leading" secondItem="eKW-og-wbC" secondAttribute="leading" id="6ko-7k-AXf"/>
-                <constraint firstItem="OA3-6F-XwT" firstAttribute="centerX" secondItem="eKW-og-wbC" secondAttribute="centerX" id="8p1-gn-ecg"/>
-                <constraint firstItem="OA3-6F-XwT" firstAttribute="centerY" secondItem="eKW-og-wbC" secondAttribute="centerY" id="CGx-Ml-2y4"/>
-                <constraint firstItem="aaL-Xk-7uA" firstAttribute="trailing" secondItem="OA3-6F-XwT" secondAttribute="trailing" id="mtd-cR-0LI"/>
-                <constraint firstItem="aaL-Xk-7uA" firstAttribute="bottom" secondItem="OA3-6F-XwT" secondAttribute="bottom" id="rae-t5-GNg"/>
-                <constraint firstAttribute="trailing" secondItem="XE1-Au-ZpB" secondAttribute="trailing" id="rhz-av-rYJ"/>
-                <constraint firstItem="XE1-Au-ZpB" firstAttribute="top" secondItem="eKW-og-wbC" secondAttribute="top" id="sJC-VG-SPY"/>
+                <constraint firstAttribute="bottom" secondItem="XE1-Au-ZpB" secondAttribute="bottom" id="9sY-GS-efg"/>
+                <constraint firstItem="XE1-Au-ZpB" firstAttribute="top" secondItem="4j5-Nx-kku" secondAttribute="top" id="E7K-T2-r5u"/>
+                <constraint firstItem="XE1-Au-ZpB" firstAttribute="leading" secondItem="4j5-Nx-kku" secondAttribute="leading" id="NJh-Lf-77G"/>
+                <constraint firstItem="aaL-Xk-7uA" firstAttribute="trailing" secondItem="OA3-6F-XwT" secondAttribute="trailing" id="PH3-CT-Qwe"/>
+                <constraint firstItem="OA3-6F-XwT" firstAttribute="centerX" secondItem="4j5-Nx-kku" secondAttribute="centerX" id="ddO-4o-ejV"/>
+                <constraint firstItem="aaL-Xk-7uA" firstAttribute="bottom" secondItem="OA3-6F-XwT" secondAttribute="bottom" id="dtA-tE-cgZ"/>
+                <constraint firstAttribute="trailing" secondItem="XE1-Au-ZpB" secondAttribute="trailing" id="oqR-Ji-iUb"/>
+                <constraint firstItem="OA3-6F-XwT" firstAttribute="centerY" secondItem="4j5-Nx-kku" secondAttribute="centerY" id="qEK-JF-4pb"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="bg" destination="XE1-Au-ZpB" id="7uX-hc-pmz"/>
-                <outlet property="btnCamera" destination="aaL-Xk-7uA" id="5mI-EI-bNN"/>
-                <outlet property="imgProfile" destination="OA3-6F-XwT" id="1fI-Nb-H5U"/>
+                <outlet property="bg" destination="XE1-Au-ZpB" id="OuU-Tr-nss"/>
+                <outlet property="btnCamera" destination="aaL-Xk-7uA" id="zDu-Aa-zUX"/>
+                <outlet property="imgProfile" destination="OA3-6F-XwT" id="tMQ-Je-6tU"/>
             </connections>
-            <point key="canvasLocation" x="-63" y="-276"/>
+            <point key="canvasLocation" x="1" y="-61"/>
         </view>
     </objects>
     <resources>

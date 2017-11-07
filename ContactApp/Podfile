@@ -15,6 +15,9 @@ pod 'Fusuma'
 #realm
 #pod 'RealmSwift'
 
+#keyboard nav
+pod 'IQKeyboardManager'
+
 end
 
 post_install do |installer|

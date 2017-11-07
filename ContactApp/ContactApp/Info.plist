@@ -39,5 +39,9 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera usage description</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photos usage description</string>
 </dict>
 </plist>

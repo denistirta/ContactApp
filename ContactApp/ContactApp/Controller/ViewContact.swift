@@ -30,8 +30,9 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
         super.viewDidLoad()
         
         dataList = ["mobile", "email"]
-        getData()
         createView()
+        getData()
+
     }
     
     func createView(){
@@ -56,8 +57,8 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
         table.frame = CGRect(x: 0, y: 310, width: self.view.frame.size.width, height: self.view.frame.size.height-310)
         table.delegate = self;
         table.dataSource = self;
-        table.backgroundColor = UIColor.init(red: 249/255, green: 249/255, blue: 249/255, alpha: 1)
-        table.separatorColor = UIColor.groupTableViewBackground
+        table.backgroundColor = UIColor.white
+        table.separatorColor = UIColor.init(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
         table.allowsSelection = false
         
         table.register(UINib(nibName: "FieldView", bundle: nil), forCellReuseIdentifier: "FieldView")
@@ -93,22 +94,11 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if self.data.count > 0{
-            return dataList.count
-        }else{
-            return 0
-        }
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.row {
-        case 0:
-            return 56
-        case 1:
-            return 56
-        default:
-            return 0
-        }
+        return 56
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,6 +114,7 @@ class ViewContact: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 cell.value.text = "\(json["email"])"
             }
             
+            cell.backgroundColor = UIColor.clear
             return cell
         }else{
             let cell = UITableViewCell()

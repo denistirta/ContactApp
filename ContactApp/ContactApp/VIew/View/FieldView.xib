@@ -18,27 +18,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hH-Dx-r6s">
-                        <rect key="frame" x="16" y="19.5" width="85" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hH-Dx-r6s">
+                        <rect key="frame" x="24" y="18.5" width="85" height="19.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="85" id="D1U-JO-7tc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20m-aa-RaW">
-                        <rect key="frame" x="109" y="19.5" width="258" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="141" y="18.5" width="210" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="20m-aa-RaW" secondAttribute="trailing" constant="8" id="TCV-OB-SZ4"/>
-                    <constraint firstItem="6hH-Dx-r6s" firstAttribute="leading" secondItem="10Q-Xi-JrR" secondAttribute="leading" constant="16" id="WlU-st-sK4"/>
+                    <constraint firstAttribute="trailing" secondItem="20m-aa-RaW" secondAttribute="trailing" constant="24" id="TCV-OB-SZ4"/>
+                    <constraint firstItem="6hH-Dx-r6s" firstAttribute="leading" secondItem="10Q-Xi-JrR" secondAttribute="leading" constant="24" id="WlU-st-sK4"/>
                     <constraint firstItem="20m-aa-RaW" firstAttribute="centerY" secondItem="10Q-Xi-JrR" secondAttribute="centerY" id="f9K-97-HBq"/>
-                    <constraint firstItem="20m-aa-RaW" firstAttribute="leading" secondItem="6hH-Dx-r6s" secondAttribute="trailing" constant="8" id="qCa-2y-6jQ"/>
+                    <constraint firstItem="20m-aa-RaW" firstAttribute="leading" secondItem="6hH-Dx-r6s" secondAttribute="trailing" constant="32" id="qCa-2y-6jQ"/>
                     <constraint firstItem="6hH-Dx-r6s" firstAttribute="centerY" secondItem="10Q-Xi-JrR" secondAttribute="centerY" id="tyq-8j-jY6"/>
                 </constraints>
             </tableViewCellContentView>
@@ -46,7 +46,7 @@
                 <outlet property="title" destination="6hH-Dx-r6s" id="euE-R6-d2g"/>
                 <outlet property="value" destination="20m-aa-RaW" id="Htc-dW-dHq"/>
             </connections>
-            <point key="canvasLocation" x="-1016" y="-497"/>
+            <point key="canvasLocation" x="-1159" y="-501"/>
         </tableViewCell>
     </objects>
 </document>

@@ -12,7 +12,7 @@ protocol PhotoAddDelegate {
     func takePicture()
 }
 
-class PhotoAdd: UIView {
+class PhotoAdd: UITableViewCell {
     
     var delegate: PhotoAddDelegate?
     @IBOutlet weak var imgProfile: UIImageView!

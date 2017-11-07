@@ -8,9 +8,14 @@
 
 import UIKit
 
+let headersAuth = [
+    "key": "Content-Type",
+    "value": "application/json",
+    "description": ""
+]
+
 public enum Base: String {
     case baseGlobal   = "http://gojek-contacts-app.herokuapp.com"
-    
 }
 
 func Contact() -> String{

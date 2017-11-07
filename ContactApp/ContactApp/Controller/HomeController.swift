@@ -20,8 +20,8 @@ class HomeController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getData()
         createView()
+        getData()
         
     }
     

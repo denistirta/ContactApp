@@ -11,38 +11,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FieldAdd" selectionStyle="default" indentationWidth="10" id="LUZ-9z-Nx2" customClass="FieldAdd" customModule="ContactApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FieldAdd" selectionStyle="default" indentationWidth="10" id="qf9-P0-hL5" customClass="FieldAdd" customModule="ContactApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LUZ-9z-Nx2" id="sc4-RC-fJ5">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qf9-P0-hL5" id="zET-ex-hf5">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="55.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-uS-h5N">
-                        <rect key="frame" x="8" y="19" width="85" height="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-ep-qs9">
+                        <rect key="frame" x="24" y="18" width="85" height="19.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="85" id="HiR-wH-gnu"/>
+                            <constraint firstAttribute="width" constant="85" id="JGk-tM-ez1"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sZM-2s-vzL">
-                        <rect key="frame" x="101" y="13" width="266" height="30"/>
-                        <nil key="textColor"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wsi-em-dGV">
+                        <rect key="frame" x="141" y="12" width="210" height="30"/>
+                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="1wo-uS-h5N" firstAttribute="centerY" secondItem="sc4-RC-fJ5" secondAttribute="centerY" id="1wN-8g-rXZ"/>
-                    <constraint firstAttribute="trailing" secondItem="sZM-2s-vzL" secondAttribute="trailing" constant="8" id="CuC-cb-QF9"/>
-                    <constraint firstItem="sZM-2s-vzL" firstAttribute="leading" secondItem="1wo-uS-h5N" secondAttribute="trailing" constant="8" id="WiQ-uw-bXP"/>
-                    <constraint firstItem="sZM-2s-vzL" firstAttribute="centerY" secondItem="sc4-RC-fJ5" secondAttribute="centerY" id="cU7-qf-2c4"/>
-                    <constraint firstItem="1wo-uS-h5N" firstAttribute="leading" secondItem="sc4-RC-fJ5" secondAttribute="leading" constant="8" id="v1o-cd-P8H"/>
+                    <constraint firstItem="zeK-ep-qs9" firstAttribute="centerY" secondItem="zET-ex-hf5" secondAttribute="centerY" id="Bnc-6O-FQB"/>
+                    <constraint firstItem="Wsi-em-dGV" firstAttribute="centerY" secondItem="zET-ex-hf5" secondAttribute="centerY" id="cVa-VA-KRY"/>
+                    <constraint firstItem="Wsi-em-dGV" firstAttribute="leading" secondItem="zeK-ep-qs9" secondAttribute="trailing" constant="32" id="hW6-zM-n4W"/>
+                    <constraint firstItem="zeK-ep-qs9" firstAttribute="leading" secondItem="zET-ex-hf5" secondAttribute="leading" constant="24" id="iEk-VY-8Q3"/>
+                    <constraint firstAttribute="trailing" secondItem="Wsi-em-dGV" secondAttribute="trailing" constant="24" id="saw-m7-S6S"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-23" y="-123"/>
+            <connections>
+                <outlet property="title" destination="zeK-ep-qs9" id="e21-v9-Mh4"/>
+                <outlet property="value" destination="Wsi-em-dGV" id="V7Q-uX-Cd2"/>
+            </connections>
+            <point key="canvasLocation" x="-990" y="-608"/>
         </tableViewCell>
     </objects>
 </document>
